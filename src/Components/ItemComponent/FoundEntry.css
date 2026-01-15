@@ -1,0 +1,303 @@
+/* Page background */
+.found-page.light {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f3f4f6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+    sans-serif;
+}
+
+/* Card */
+.found-card.light {
+  width: 55vw;          /* was 75vw – overall narrower */
+  height: auto;
+  /* max-width: 720px;     was 900px – smaller max size */
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px 36px 32px;  /* less padding on all sides */
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+/* Header row: logo + title on same line */
+.found-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+/* Logo inside card */
+.found-logo {
+  height: 94px;        /* as requested */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Heading + subtitle */
+.found-title.light {
+  text-align: left;    /* align with logo, not full-center */
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0;           /* remove extra margin so it lines up with logo */
+  color: #020617;
+}
+
+.found-subtitle {
+  text-align: center;    /* optional: align under the title */
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+/* Form layout: label left, input right */
+.found-form.light {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.found-row.light {
+  display: grid;
+  grid-template-columns: 1.1fr 2.4fr;
+  column-gap: 40px;
+  align-items: center;
+}
+
+/* Left label column */
+.found-label {
+  font-size: 15px;
+  color: #111827;
+  text-align: right;
+}
+
+/* Right input column */
+.found-input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs */
+.found-input.light {
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  padding: 0 14px;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+}
+
+.found-input.light:focus {
+  border-color: #111827;
+}
+
+/* Date input placeholder visual */
+.found-input[type="date"].light {
+  color: #111827;
+}
+
+/* Native file input (no longer used in UI but kept if needed) */
+.file-input-native {
+  padding: 8px 10px;
+  height: auto;
+  background: #f9fafb;
+}
+
+/* Small preview thumbnail (optional) */
+.found-preview-thumb {
+  margin-top: 8px;
+  max-width: 160px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Error text */
+.error-text {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #dc2626;
+}
+
+/* Actions row */
+.found-actions.light {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Primary and secondary buttons */
+.found-submit.light,
+.found-return.light {
+  min-width: 130px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.found-submit.light {
+  background: #020617;
+  color: #f9fafb;
+}
+
+.found-return.light {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* Success overlay reused from previous version */
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px 32px 28px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  color: #111827;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
+}
+
+.success-title {
+  margin-bottom: 16px;
+}
+
+.success-icon {
+  margin: 0 auto 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-tick {
+  width: 26px;
+  height: 14px;
+  border-left: 3px solid #22c55e;
+  border-bottom: 3px solid #22c55e;
+  transform: rotate(-45deg);
+}
+
+.success-ok-btn {
+  padding: 8px 24px;
+  border-radius: 999px;
+  border: none;
+  background: #020617;
+  color: #f9fafb;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Custom upload drop-zone (GitHub-like) */
+.upload-drop-zone {
+  border: 1px dotted #9ca3af;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  padding: 28px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease,
+    color 0.18s ease;
+  position: relative;
+  overflow: hidden;
+  animation: dropzone-breathe 3s ease-in-out infinite;
+}
+
+/* hover: slight lift + glow */
+.upload-drop-zone:hover {
+  background-color: #e5e7eb;
+  border-color: #6b7280;
+  box-shadow: 0 10px 25px rgba(148, 163, 184, 0.35);
+  transform: translateY(-1px) scale(1.01);
+}
+
+/* inner highlight ring using pseudo-element */
+.upload-drop-zone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(37, 99, 235, 0);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  pointer-events: none;
+}
+
+.upload-drop-zone:hover::after {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+}
+
+/* Optional focus style */
+.upload-drop-zone:focus-visible,
+.upload-drop-zone:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 0 rgba(17, 24, 39, 0);
+}
+
+/* breathing animation keyframes */
+@keyframes dropzone-breathe {
+  0% {
+    box-shadow: 0 6px 16px rgba(148, 163, 184, 0.1);
+  }
+  50% {
+    box-shadow: 0 10px 26px rgba(148, 163, 184, 0.2);
+  }
+  100% {
+    box-shadow: 0 6px 16px rgba(148, 163, 184, 0.1);
+  }
+}
+
+/* blue clickable text */
+.upload-click-text {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.upload-drop-zone:hover .upload-click-text {
+  color: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .found-card.light {
+    width: 95vw;
+    padding: 24px 20px 28px;
+  }
+
+  .found-row.light {
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+  }
+
+  .found-label {
+    text-align: left;
+  }
+}

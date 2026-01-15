@@ -1,0 +1,271 @@
+/* page background */
+.match-dashboard {
+  min-height: 100vh;
+  background: #f5f6fa;
+  font-family: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #202224;
+}
+
+/* top white bar with logo + back */
+.match-header {
+  height: 80px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.match-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.match-logo-img {
+  height: 56px; /* tune to your logo */
+}
+
+.match-header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* black Back button */
+.match-back-btn {
+  min-width: 100px;
+  height: 48px;
+  padding: 0 24px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-family: "Roboto", system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.match-back-btn:hover {
+  background: #111111;
+}
+
+/* thin blue line under header */
+.match-header-divider {
+  height: 3px;
+  background: #28a9ff;
+}
+
+/* main content */
+.match-main {
+  max-width: 1100px;
+  margin: 32px auto 40px;
+  padding: 0 16px 32px;
+}
+
+/* centered title */
+.match-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+/* search row (optional) */
+/* .match-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+} */
+.match-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.match-table th,
+.match-table td {
+  text-align: center;
+  padding: 10px 16px;
+}
+
+.match-status-cell {
+  text-align: center;
+}
+
+/* popup modal */
+.match-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.match-modal-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  width: 320px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.match-modal-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.match-modal-card p {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.match-modal-btn {
+  padding: 8px 24px;
+  border-radius: 999px;
+  border: none;
+  background: #4ade80;
+  color: #064e3b;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.match-search-wrapper {
+  position: relative;
+  max-width: 320px;
+  width: 100%;
+}
+
+.match-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+.match-search-input {
+  width: 100%;
+  padding: 8px 12px 8px 32px;
+  border-radius: 22px;
+  border: 1px solid #d5d5d5;
+  background: #f5f6fa;
+  font-size: 14px;
+  outline: none;
+}
+
+.match-search-input::placeholder {
+  color: #777;
+}
+
+.match-count-text {
+  font-size: 13px;
+  color: #666;
+  white-space: nowrap;
+}
+
+/* white table card */
+.match-table-card {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+/* table styles */
+.match-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.match-table thead {
+  background: #fafbfd;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.match-table th {
+  padding: 12px 18px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 12px;
+  color: #777;
+  white-space: nowrap;
+}
+
+.match-table td {
+  padding: 12px 18px;
+  font-size: 13px;
+  color: #333;
+}
+
+.match-table tbody tr:nth-child(even) {
+  background: #fcfdfd;
+}
+
+/* first column: 00001 */
+.match-table td:first-child {
+  font-weight: 600;
+}
+
+/* error / empty text */
+.match-error,
+.match-no-data {
+  padding: 16px 18px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* status cell with mint Collect pill */
+.match-status-cell {
+  text-align: right;
+}
+
+.match-collect-pill {
+  padding: 4px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #cbf8ea; /* mint bg like screenshot */
+  color: #00b69b;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.match-collect-pill:hover {
+  background: #b2f3de;
+}
+
+.match-status-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #999;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .match-main {
+    margin-top: 24px;
+    padding: 0 8px 24px;
+  }
+
+  .match-top-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .match-count-text {
+    text-align: right;
+  }
+
+  .match-table th,
+  .match-table td {
+    padding: 10px 8px;
+  }
+}

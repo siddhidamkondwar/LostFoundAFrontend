@@ -1,0 +1,737 @@
+/* ========== GLOBAL ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+}
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+.landing-page {
+  max-width: 1500px !important;
+  margin: 0 auto;
+  padding: 24px 32px 60px;
+  animation: pageFadeIn 0.6s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== TOP NAV ========== */
+.nav-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 12px 0;
+  background-color: #ffffffee;
+  backdrop-filter: blur(6px);
+}
+
+/* NEW: logo + name wrapper */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* NEW: logo sizing */
+.nav-logo {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-site-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0077ff;
+  cursor: default;
+}
+
+/* underline animation for nav links */
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-items button {
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #111111;
+  padding: 6px 0;
+  transition: color 0.25s ease;
+}
+
+.nav-items button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #111111;
+  transition: width 0.25s ease;
+}
+
+.nav-items button:hover {
+  color: #333333;
+}
+
+.nav-items button:hover::after {
+  width: 100%;
+}
+
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 12px;
+}
+
+/* buttons with subtle hover animation */
+.nav-login,
+.nav-signup-btn {
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  transition:
+    background-color 0.23s ease,
+    color 0.23s ease,
+    box-shadow 0.23s ease,
+    transform 0.23s ease;
+}
+
+.nav-login {
+  border: 1px solid #d0d0d0;
+  background-color: #ffffff;
+}
+
+.nav-signup-btn {
+  border: none;
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.nav-login:hover {
+  transform: translateY(-1px);
+}
+
+.nav-signup-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ========== HERO ========== */
+.hero-copy {
+  margin-top: 12px;
+}
+
+/* wrapper for h1 + subheading; drives gap to image */
+.hero-page-title {
+  max-width: 520px;
+  animation: slideUp 0.6s ease-out;
+  margin-bottom: 32px;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-heading {
+  font-size: 32px;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #111111;
+  text-align: left;
+  font-style: italic;
+}
+
+.hero-subheading {
+  font-size: 14px;
+  color: #444444;
+  line-height: 1.5;
+  text-align: left;
+  margin-top: 8px;
+}
+
+/* hero image container */
+.hero-image-wrapper {
+  margin-top: 12px;
+  width: 100%;
+  height: 260px;
+  background-color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+}
+
+.hero-image-wrapper img,
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding-top: 20px;
+}
+
+/* float animation reused for how image */
+@keyframes heroFloat {
+  from {
+    transform: scale(1.02) translateY(0);
+  }
+  to {
+    transform: scale(1.05) translateY(-6px);
+  }
+}
+
+/* ========== LOST & FOUND CARDS ========== */
+.section-lost-found {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.lost-found-heading {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.lost-cards {
+  display: flex;
+  gap: 18px;
+}
+
+/* fancy card with entrance animation */
+.lost-card {
+  position: relative;
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  box-shadow:
+    8px 14px 38px rgba(39, 44, 49, 0.06),
+    1px 3px 8px rgba(39, 44, 49, 0.03);
+  transform-origin: center bottom;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    filter 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  animation: cardIn 0.6s ease forwards;
+}
+
+.lost-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.lost-card:nth-child(2) {
+  animation-delay: 0.13s;
+}
+.lost-card:nth-child(3) {
+  animation-delay: 0.21s;
+}
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.lost-card-img-wrap {
+  overflow: hidden;
+}
+
+.lost-card-img-wrap img {
+  width: 100%;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+/* glow + tilt on hover */
+.lost-card:hover {
+  transform: translateY(-10px) scale(1.04) rotate3d(1, 0, 0, 2deg);
+  box-shadow:
+    8px 28px 50px rgba(39, 44, 49, 0.12),
+    1px 6px 12px rgba(39, 44, 49, 0.06);
+  border-color: rgba(0, 119, 255, 0.45);
+  filter: brightness(1.02);
+}
+
+.lost-card:hover .lost-card-img-wrap img {
+  transform: scale(1.08);
+}
+
+/* subtle top accent on hover */
+.lost-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border-top: 3px solid transparent;
+  pointer-events: none;
+  transition: border-top-color 0.25s ease;
+}
+
+.lost-card:hover::before {
+  border-top-color: #0077ff;
+}
+
+.lost-card-copy {
+  padding: 8px 10px 12px;
+}
+
+.lost-card-title {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 4px;
+  transition: letter-spacing 0.25s ease, color 0.25s ease;
+}
+
+.lost-card:hover .lost-card-title {
+  letter-spacing: 0.5px;
+  color: #0077ff;
+}
+
+/* ========== HOW IT WORKS ========== */
+.section-how {
+  margin-top: 60px;
+}
+
+.how-heading {
+  font-size: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.how-layout {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.how-text-blocks {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.how-text-block {
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  padding: 12px 14px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+/* small highlight bar on left */
+.how-text-block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #0077ff, #111111);
+  opacity: 0.7;
+}
+
+.how-text-block:hover {
+  background-color: #f0f4ff;
+  transform: translateY(-3px);
+}
+
+.how-text {
+  font-size: 13px;
+  color: #222222;
+}
+
+.how-image-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.how-image {
+  max-width: 260px;
+  width: 100%;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.22));
+  animation: heroFloat 6s ease-in-out infinite alternate;
+}
+
+/* ========== KEY BENEFITS ========== */
+.section-benefits {
+  margin-top: 60px;
+}
+
+.benefits-heading {
+  font-size: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.benefit-cards {
+  display: flex;
+  gap: 24px;
+}
+
+.benefit-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 4px;
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+}
+
+.benefit-img-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.benefit-img-wrap img {
+  width: 100%;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.benefit-card:hover .benefit-img-wrap img {
+  transform: scale(1.05);
+}
+
+.benefit-copy {
+  padding: 0 4px;
+}
+
+.benefit-text {
+  font-size: 13px;
+  color: #222222;
+  max-width: 260px;
+}
+
+/* ========== REVIEWS ========== */
+.section-reviews {
+  margin-top: 60px;
+}
+
+.reviews-heading {
+  font-size: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.reviews-cards {
+  display: flex;
+  gap: 18px;
+}
+
+.review-card {
+  flex: 1;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  padding: 14px 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  border-color: #cccccc;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.review-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.review-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #111111, #444444);
+}
+
+.review-name {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.review-role {
+  font-size: 11px;
+  color: #666666;
+}
+
+/* ========== CTA STRIP ========== */
+.cta-section {
+  margin-top: 60px;
+  padding: 26px 20px;
+  background: radial-gradient(circle at top left, #f0f4ff, #f6f6f6);
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle moving shine */
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.9),
+    transparent
+  );
+  opacity: 0.3;
+  transform: translateX(-100%);
+  animation: ctaShine 6s linear infinite;
+}
+
+@keyframes ctaShine {
+  to {
+    transform: translateX(220%);
+  }
+}
+
+.cta-heading {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  z-index: 1;
+}
+
+/* ========== FOOTER ========== */
+.footer-main {
+  margin-top: 60px;
+  font-size: 12px;
+}
+
+.footer-divider {
+  border-top: 1px solid #e0e0e0;
+  margin-bottom: 18px;
+}
+
+.footer-brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.footer-brand-text {
+  font-weight: 500;
+}
+
+.footer-links-columns {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-col-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.footer-link {
+  margin-bottom: 4px;
+  color: #555555;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #111111;
+  transform: translateX(2px);
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* circular grey icons */
+.social-square {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease-out,
+    color 0.15s ease-out,
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+}
+
+.social-square:hover {
+  background: #111827;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.35);
+}
+
+/* ========== OVERLAY CARDS (ABOUT / CONTACT) ========== */
+.lp-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 20;
+  animation: fadeInOverlay 0.25s ease;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lp-card {
+  position: fixed;
+  top: 80px;
+  right: 80px;
+  width: 320px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 18px 18px 20px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+  z-index: 30;
+  animation: slideInCard 0.3s ease-out;
+}
+
+@keyframes slideInCard {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.lp-card-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.lp-card-content h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.lp-card-content p {
+  font-size: 13px;
+  color: #444444;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .landing-page {
+    padding: 16px;
+  }
+
+  .nav-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* smaller logo on mobile */
+  .nav-logo {
+    height: 32px;
+  }
+
+  .nav-items {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .lost-cards,
+  .benefit-cards,
+  .reviews-cards {
+    flex-direction: column;
+  }
+
+  .how-layout,
+  .footer-brand-row {
+    flex-direction: column;
+  }
+
+  .lp-card {
+    right: 16px;
+    left: 16px;
+    width: auto;
+  }
+
+  .hero-image-wrapper {
+    height: 220px;
+  }
+}
